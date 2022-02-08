@@ -38,7 +38,7 @@ class Test {
         $connection  = $this->_connect->getConnection();
         $tableName = $connection->getTableName("catalogrule");
         $data = ['is_active' => $cron, 'discount_amount' => $this->_helper->getCronConfig('discount_cron')];
-        $where = ['rule_id = ?' => '3'];
+        $where = ['rule_id = ?' => '2'];
         $connection->update($tableName, $data, $where);
     }
 }

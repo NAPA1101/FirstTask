@@ -5,8 +5,8 @@ if ($block->getEnableModule()) {
     }
 }
 
-if ($block->getCron() && $block->getSaleEnabled()) {
-    echo "<b>С 8 до 10 утра пенсионерам скидка 15%! </b><br>";
+if ($block->getCron() && $block->getSaleEnabled() && $block->getCustomGroup() == 4) {
+    echo "<b>С 8 до 10 дня пенсионерам скидка 15%! </b><br>";
 }
 
 

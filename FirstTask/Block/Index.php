@@ -26,6 +26,8 @@ class Index extends \Magento\Framework\View\Element\Template
     /** @var DateTime  */
     protected $_date;
 
+    protected $_httpContext;
+
     /**
      * @param Context $context
      * @param Data $helperData
@@ -43,6 +45,7 @@ class Index extends \Magento\Framework\View\Element\Template
         CollectionFactory $productCollectionFactory,
         CategoryFactory $categoryFactory,
         DateTime $date,
+        \Magento\Framework\App\Http\Context $httpContext,
         array $data = [])
 
     {
@@ -53,6 +56,7 @@ class Index extends \Magento\Framework\View\Element\Template
         $this->_productCollectionFactory = $productCollectionFactory;
         $this->_categoryFactory = $categoryFactory;
         $this->_date = $date;
+        $this->_httpContext = $httpContext;
     }
 
     /**
@@ -150,4 +154,8 @@ class Index extends \Magento\Framework\View\Element\Template
         return $this->_helperData->getCronConfig('enable_discount');
     }
 
+    public function getCustomGroup()
+    {
+        return $this->_httpContext->getValue(\Magento\Customer\Model\Context::CONTEXT_GROUP);
+    }
 }
